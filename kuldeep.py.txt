@@ -1,0 +1,54 @@
+#programme to take input from string with set of numeric grades
+from statistics import mean
+
+
+while True:
+    grad_int_list = []
+    grades = input("Enter Grades : ")
+    if not grades:
+        print(' Exit .. ')
+        break
+    grades_list = grades.split(",")
+
+    if(len(grades_list) <  6 ):
+        print('You entered only {} !! Your Length should be greater than 6 !! Please try again'.format(len(grades_list)))
+        continue
+
+    try:
+        for i in grades_list:
+            grad_int_list.append(float(i))
+    except ValueError:
+        print('Please Enter Numeric Int Only')
+        continue
+
+    grad_int_list.sort()
+    print('\tSorted Grades : {}'.format(grad_int_list))
+    print('\tMax Grade : {}'.format(max(grad_int_list)))
+    print('\tMin Grade : {}'.format(min(grad_int_list)))
+    print('\tAvg Grade : {}'.format(mean(grad_int_list)))
+    
+
+#programme to list of tuples
+Items = [('Shoes', 20.0), ('Banana', .5), ('Shirt', 5), ('Coffee', 3), ('Egg', 1), ('Watch', 50) , ('bag', 99), ('book', 8), ('Bulb', 11), ('Lamp',23)] 
+
+while True:
+    affordable = []
+    
+    user_ip = (input(' Enter any Price : '))
+    if not user_ip:
+        print(' ...Exit .. ')
+        break
+    for t in Items:
+        try:
+            if( float(user_ip) >= float(t[1])):
+                affordable.append(t[0])
+        except ValueError:
+            print('Please Enter Numeric  Only')
+            break
+            
+    print ('\t You can Afford {}'.format(affordable))
+        
+    
+
+        
+    
